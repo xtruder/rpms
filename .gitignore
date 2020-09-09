@@ -1,3 +1,5 @@
+*build-*.log
 *.log
 *.tar.gz
 *.rpm
+.build

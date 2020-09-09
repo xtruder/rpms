@@ -2,15 +2,12 @@
 {
 	"name": "gnome-shell-extension-workspace-switcher",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"USERNAME": "vscode"
-		}
+		"dockerfile": "Dockerfile"
 	},
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash",
+		"terminal.integrated.shell.linux": "/bin/bash"
 	},
 
 
