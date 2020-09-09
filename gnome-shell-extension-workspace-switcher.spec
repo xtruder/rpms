@@ -15,7 +15,7 @@ Summary:        A Gnome workspace switcher
 # The entire source code is GPLv3+ except convenience.js, which is BSD
 License:        GPLv3+
 URL:            %{giturl}
-Source0:        %{giturl}/archive/%{gitcommit}/%{name}-%{version}-%{gitshortcommit}.tar.gz
+Source0:        %{giturl}/archive/%{gitcommit}.tar.gz#/%{name}-%{version}-%{gitshortcommit}.tar.gz
 
 BuildArch:      noarch
 
