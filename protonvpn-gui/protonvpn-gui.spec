@@ -3,13 +3,14 @@
 
 Name:           protonvpn-gui
 Version:        2.1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Linux GUI for ProtonVPN, written in Python.
 
 License:        GPLv3
 %undefine       _disable_source_fetch
 URL:            https://github.com/ProtonVPN/%{github_name}
 Source:         %{url}/archive/v%{version}.tar.gz#/%{github_name}-%{version}.tar.gz
+Patch0:         relax-required-versions.patch
 %define         SHA256SUM0 de7f6501bd051d3eeda731edf5ed932dd0e23555f5f39ec6ff2b6ce99de83338
 
 BuildArch:      noarch
@@ -17,8 +18,6 @@ BuildRequires:  python3
 BuildRequires:  python3-devel
 
 Requires:       openvpn
-Requires:       python3-requests
-Requires:       protonvpn-cli
 %if 0%{?fedora} || 0%{?.el8}
 Recommends:     dialog
 Recommends:     NetworkManager-openvpn
@@ -52,5 +51,3 @@ echo "%SHA256SUM0  %SOURCE0" | sha256sum -c
 
 
 %changelog
-* Thu Sep 10 2020 Jaka Hudoklin <jaka@x-truder.net> - 2.1.1-1
-- First protonvpn-gui package
