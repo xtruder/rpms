@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ProtonVPN Tray
+GenericName=ProtonVPN Tray
+Exec=protonvpn-tray
+Icon=protonvpn-gui
+Type=Application
+Terminal=false
+Categories=Utility;Network;
