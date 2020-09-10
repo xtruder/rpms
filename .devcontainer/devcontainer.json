@@ -5,6 +5,9 @@
 		"dockerfile": "Dockerfile"
 	},
 
+	"runArgs": ["--cap-add=CAP_SYS_ADMIN"],
+	"mounts": ["type=bind,source=${localWorkspaceFolder}/.devcontainer/config,target=/home/vscode/.config"],
+
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash"

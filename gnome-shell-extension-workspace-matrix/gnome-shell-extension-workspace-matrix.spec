@@ -10,7 +10,9 @@ Summary:        A Gnome workspace matrix extension
 # The entire source code is GPLv3+ except convenience.js, which is BSD
 License:        GPLv3+
 URL:            https://github.com/mzur/gnome-shell-wsmatrix
+%undefine       _disable_source_fetch
 Source0:        %{url}/archive/v%{version}.tar.gz
+%define         SHA256SUM0 c319278e950da2794c1aec84effee5cae00e71ac6533929c3d356f6b8bd68ef1
 
 BuildArch:      noarch
 
@@ -31,6 +33,7 @@ workspace thumbnails.
 
 
 %prep
+echo "%SHA256SUM0  %SOURCE0" | sha256sum -c -
 %autosetup -n gnome-shell-wsmatrix-%{version} -p 1
 
 
