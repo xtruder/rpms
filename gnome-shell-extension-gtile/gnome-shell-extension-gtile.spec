@@ -10,7 +10,7 @@
 
 Name:           gnome-shell-extension-gtile
 Version:        35
-Release:        1%{?gitsnapinfo}%{?dist}
+Release:        2%{?gitsnapinfo}%{?dist}
 Summary:        Gnome-shell extension that improves window tiling capabilities of stock gnome-shell
 
 License:        GPLv2+
@@ -53,7 +53,7 @@ mkdir -p %{buildroot}%{extdir}
 tar -xzf "bazel-bin/dist.tar.gz" --directory "%{buildroot}%{extdir}"
 
 # Cleanup unused files.
-rm -fr %{buildroot}%{extdir}/{schemas,LICENSE}
+rm -fr %{buildroot}%{extdir}/LICENSE
 
 # Install schema.
 mkdir -p %{buildroot}%{gschemadir}
