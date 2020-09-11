@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=System;
 Comment=
-Exec=python3 /usr/libexec/gnome-usbguard/usbguard_gnome_window.pyc
-Icon=usbguard-gnome.svg
+Exec=python3 /usr/libexec/usbguard-gnome/usbguard_gnome_window.pyc
+Icon=usbguard
 Keywords=USB;USBGuard;
 Name=USBGuard
 NoDisplay=false

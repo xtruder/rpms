@@ -8,7 +8,7 @@
 Name:       usbguard-gnome
 Summary:    USBGuard configuration interface for gnome
 Version:    0
-Release:    1%{?gitsnapinfo}%{?dist}
+Release:    2%{?gitsnapinfo}%{?dist}
 License:    GPLv2+
 Group:      Applications/Security
 URL:        %{giturl}
@@ -16,7 +16,7 @@ URL:        %{giturl}
 Source0:    %{url}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
 Source1:    usbguard.desktop
 Source2:    usbguard_applet.desktop
-Source3:    usbguard-icon.svg
+Source3:    usbguard.svg
 Patch0:     dbus-connection-strings.patch
 %define     SHA256SUM0 086f5fe65c96b165ce0ba0749e575b058fba3eb5c1109d7d4310fdd8ae518463
 
