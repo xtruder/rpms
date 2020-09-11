@@ -2,7 +2,7 @@
 Categories=System;
 Comment=
 Exec=python3 /usr/libexec/usbguard-gnome/usbguard_gnome_window.pyc
-Icon=usbguard
+Icon=usbguard-gnome
 Keywords=USB;USBGuard;
 Name=USBGuard
 NoDisplay=false
