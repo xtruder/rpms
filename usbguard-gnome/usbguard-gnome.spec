@@ -8,7 +8,7 @@
 Name:       usbguard-gnome
 Summary:    USBGuard configuration interface for gnome
 Version:    0
-Release:    3%{?gitsnapinfo}%{?dist}
+Release:    4%{?gitsnapinfo}%{?dist}
 License:    GPLv2+
 Group:      Applications/Security
 URL:        %{giturl}
@@ -54,10 +54,14 @@ install -m0755 src/*.pyc %{buildroot}%{_libexecdir}/%{name}/
 install -d -D -m0755 %{buildroot}%{gschemadir}
 install -m0644 -T src/org.gnome.usbguard.gschema.xml %{buildroot}%{gschemadir}/org.gnome.usbguard.gschema.xml
 
-install -d -D -m0755 %{buildroot}%{_datadir}/icons/hicolor/scalable/
-install -m0644 -T %{SOURCE3} %{buildroot}%{_datadir}/icons/hicolor/scalable/%{name}.svg
+install -d -D -m0755 %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+install -m0644 -T %{SOURCE3} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE2}
+
+
+%post
+update-desktop-database /usr/share/applications &> /dev/null || :
 
 
 %postun
@@ -68,7 +72,7 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE2}
 %doc README.md
 %{_datadir}/applications/*.desktop
 %{_libexecdir}/%{name}/*
-%{_datadir}/icons/hicolor/scalable/*
+%{_datadir}/icons/hicolor/scalable/apps/*
 %{gschemadir}/*gschema.xml
 
 %changelog
