@@ -1,0 +1,15 @@
+[Desktop Entry]
+Categories=System;
+Comment=
+Exec=python3 /usr/libexec/gnome-usbguard/usbguard_gnome_applet.pyc
+Icon=usbguard-gnome.svg
+Keywords=USB;USBGuard;
+Name=USBGuard Applet
+NoDisplay=false
+Path=
+StartupNotify=true
+StartupWMClass=
+Terminal=false
+TryExec=
+Type=Application
+Version=1.0

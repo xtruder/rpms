@@ -1,74 +1,74 @@
 %global gschemadir %{_datadir}/glib-2.0/schemas
+%global gitname    usbguard-gnome
+%global giturl     https://github.com/6E006B/%{gitname}
+%global gitcommit c9fff56bdd985c61082e829aac09601fb086f76c
+%global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
+%global gitsnapinfo .20190713git%{gitshortcommit}
 
-Name:			usbguard-gnome
-Summary:		USBGuard configuration interface for gnome
-Version:		0.1.1
-Release:		1%{?dist}
-License:		GPLv2+
-Group:			Applications/Security
-URL:			https://github.com/drahnr/usbguard-gnome
-%undefine		_disable_source_fetch
-Source0:		%{url}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-%define			SHA256SUM0 aa704d9fd30a7110fc209dd5cb1258f0b72ed3a9e3e18c7ef377068891a3fc16
+Name:       usbguard-gnome
+Summary:    USBGuard configuration interface for gnome
+Version:    0
+Release:    1%{?gitsnapinfo}%{?dist}
+License:    GPLv2+
+Group:      Applications/Security
+URL:        %{giturl}
+%undefine   _disable_source_fetch
+Source0:    %{url}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
+Source1:    usbguard.desktop
+Source2:    usbguard_applet.desktop
+Source3:    usbguard-icon.svg
+Patch0:     dbus-connection-strings.patch
+%define     SHA256SUM0 086f5fe65c96b165ce0ba0749e575b058fba3eb5c1109d7d4310fdd8ae518463
 
 BuildArch:      noarch
 
 BuildRequires: desktop-file-utils
+BuildRequires: python3
+Requires: usbguard-dbus
 Requires: python3
 Requires: python3-gobject
 Requires: python3-dbus
-Requires: gtksourceview3
+Requires: python3-pyparsing
+Requires: python3-cairo
 Requires: gtk3
+Requires: pango
 Requires: glib2 >= 2.24
+Requires: hicolor-icon-theme
 
 %description
 USBGuard configuration interface for gnome
 
 %prep
 echo "%SHA256SUM0  %SOURCE0" | sha256sum -c -
-%setup -q -n %{name}-%{version}
+%autosetup -n %{gitname}-%{gitcommit} -p 1
+
 
 %build
+python3 -m compileall -b src
+
 
 %install
+install -d -D -m0755 %{buildroot}%{_libexecdir}/%{name}/
+install -m0755 src/*.pyc %{buildroot}%{_libexecdir}/%{name}/
 
-install -d -D -m0755 %{buildroot}%{_datadir}/glib-2.0/schemas/
+install -d -D -m0755 %{buildroot}%{gschemadir}
 install -m0644 -T src/org.gnome.usbguard.gschema.xml %{buildroot}%{gschemadir}/org.gnome.usbguard.gschema.xml
 
 install -d -D -m0755 %{buildroot}%{_datadir}/icons/hicolor/scalable/
-install -m0644 -T src/*.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/%{name}.svg
-desktop-file-install --dir=%{buildroot}%{_datadir}/applications usbguard*.desktop
-
-install -d -D -m0755 %{buildroot}%{_datadir}/%{name}/
-install -m0755 src/*.py %{buildroot}%{_datadir}/%{name}/
-
-
-%post
-/bin/touch --no-create %{_datadir}/icons/hicolor/scalable &>/dev/null || :
-/usr/bin/glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
+install -m0644 -T %{SOURCE3} %{buildroot}%{_datadir}/icons/hicolor/scalable/%{name}.svg
+desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
+desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE2}
 
 
 %postun
-if [ $1 -eq 0 ] ; then
-    /usr/bin/glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
-    /bin/touch --no-create %{_datadir}/icons/hicolor/scalable &>/dev/null
-    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor/scalable &>/dev/null || :
-fi
 /usr/bin/update-desktop-database &> /dev/null || :
-
-
-%posttrans
-/usr/bin/glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor/scalable &>/dev/null || :
 
 
 %files
 %doc README.md
 %{_datadir}/applications/*.desktop
-%{_datadir}/%{name}/*
+%{_libexecdir}/%{name}/*
 %{_datadir}/icons/hicolor/scalable/*
 %{gschemadir}/*gschema.xml
 
 %changelog
-* Thu Feb 20 2020 Bernhard Schuster <bernhard@ahoi.io> 0.1.0-1
- - Initial release
