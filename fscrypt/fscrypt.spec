@@ -1,5 +1,4 @@
 %define     debug_package %{nil}
-%undefine   _disable_source_fetch
 
 Name:       fscrypt
 Version:    0.2.9
@@ -23,7 +22,6 @@ High-level tool for the management of linux filesystem encryption.
 
 
 %prep
-echo "%SHA256SUM0  %SOURCE0" | sha256sum -c 
 %autosetup -n %{name}-%{version} x
 
 
