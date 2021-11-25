@@ -3,13 +3,13 @@
 - Building locally
 
 ```
-fedpkg -dist f32 mockbuild
+fedpkg --release f35 mockbuild
 ```
 
 Building with custom parameters:
 
 ```
-fedpkg --dist f32 mockbuild  --mock-config ./fedora-32-x86_64-bazel.cfg --enable-network
+fedpkg --release f35 mockbuild  --mock-config ./fedora-35-x86_64-bazel.cfg --enable-network
 ```
 
 - Cleanup
@@ -28,7 +28,7 @@ and put it into `.devcontainer/config/copr` file.
 - Add yum repo
 
 ```
-cat /etc/yum.repos.d/offlinehacker-xtruder-rpms-fedora-32.repo 
+cat /etc/yum.repos.d/offlinehacker-xtruder-rpms-fedora.repo 
 [copr:copr.fedorainfracloud.org:offlinehacker:xtruder-rpms]
 name=Copr repo for xtruder-rpms owned by offlinehacker
 baseurl=https://download.copr.fedorainfracloud.org/results/offlinehacker/xtruder-rpms/fedora-$releasever-$basearch/
