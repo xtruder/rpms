@@ -1,13 +1,14 @@
 %define     debug_package %{nil}
 
 Name:       fscrypt
-Version:    0.2.9
+Version:    0.3.1
 Release:    1%{dist}
 Summary:    High-level tool for the management of linux filesystem encryption.
 License:    ASL 2.0
 URL:        https://github.com/google/fscrypt
+%undefine   _disable_source_fetch
 Source0:    https://github.com/google/fscrypt/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-%define     SHA256SUM0 36f1166d9886548b0d72beeeffb9ca8fb5b28b63a42b369923bc3f0bea78bb3d
+%define     SHA256SUM0 7ed190ac9a53a0c378620f226da4e700375a055a99b888beef1c4efa3ff7f0e6
 
 BuildRequires: gcc
 BuildRequires: m4
@@ -27,7 +28,7 @@ echo "%SHA256SUM0  %SOURCE0" | sha256sum -c
 
 
 %build
-%make_build TAG_VERSION=v%{version}
+%make_build TAG_VERSION=v%{version} GO111MODULE=on
 
 
 %install
