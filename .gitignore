@@ -1,6 +1,7 @@
 *build-*.log
 *.log
 *.tar.gz
+*.zip
 *.rpm
 .build
 .devcontainer/config
