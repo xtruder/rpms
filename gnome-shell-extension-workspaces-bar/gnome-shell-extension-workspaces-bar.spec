@@ -3,9 +3,9 @@
 %global gschemadir %{_datadir}/glib-2.0/schemas
 %global gitname    workspaces-bar
 %global giturl     https://github.com/fthx/%{gitname}
-%global gitcommit 1a28afae7db9d924867b022f30049590f1170add
+%global gitcommit  5983c756673051e08ccc37cfed8efb92383c4cfa
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo .20210408git%{gitshortcommit}
+%global gitsnapinfo .20211125git%{gitshortcommit}
 
 Name:           gnome-shell-extension-workspaces-bar
 Version:        0
@@ -17,19 +17,14 @@ License:        GPLv3+
 URL:            %{giturl}
 %undefine       _disable_source_fetch
 Source0:        %{giturl}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
-%define         SHA256SUM0 577f1424cd663f58bcfa313f598f563b1a5e2f148cff4a314097a27c720efb07
+%define         SHA256SUM0 1ca177646dc2bb6244e9e3928b096f1a2edc9293ffb33c3bf375d480d388945f
 
 BuildArch:      noarch
 
 BuildRequires:  %{_bindir}/glib-compile-schemas
 
 Requires:       gnome-shell-extension-common
-Requires:       gnome-shell >= 3.24.0
-
-# CentOS 7 build environment doesn't support Suggests tag.
-%if 0%{?fedora} || 0%{?rhel} >= 8
-Suggests:       gnome-tweaks
-%endif
+Requires:       gnome-shell >= 3.36.0
 
 
 %description
