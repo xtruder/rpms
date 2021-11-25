@@ -2,7 +2,7 @@
 
 Name:       fscrypt
 Version:    0.3.1
-Release:    1%{dist}
+Release:    0%{?dist}
 Summary:    High-level tool for the management of linux filesystem encryption.
 License:    ASL 2.0
 URL:        https://github.com/google/fscrypt
