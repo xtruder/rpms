@@ -8,6 +8,8 @@ URL:        https://github.com/google/fscrypt
 Source0:    https://github.com/google/fscrypt/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 %define     SHA256SUM0 7ed190ac9a53a0c378620f226da4e700375a055a99b888beef1c4efa3ff7f0e6
 
+BuildArch:  x86_64
+
 BuildRequires: gcc
 BuildRequires: m4
 BuildRequires: golang >= 1.11
