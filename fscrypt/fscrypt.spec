@@ -1,5 +1,3 @@
-%define     debug_package %{nil}
-
 Name:       fscrypt
 Version:    0.3.1
 Release:    0%{?dist}
