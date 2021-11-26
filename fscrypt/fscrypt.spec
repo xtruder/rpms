@@ -1,3 +1,6 @@
+# do not remove, as fscrypt is statically linked, and find-debuginfo.sh will fail
+%global debug_package %{nil} 
+
 Name:       fscrypt
 Version:    0.3.1
 Release:    0%{?dist}
@@ -28,7 +31,7 @@ echo "%SHA256SUM0  %SOURCE0" | sha256sum -c
 
 
 %build
-%make_build TAG_VERSION=v%{version} GO111MODULE=on
+%make_build TAG_VERSION=v%{version}
 
 
 %install
@@ -44,6 +47,7 @@ echo "%SHA256SUM0  %SOURCE0" | sha256sum -c
 %{_bindir}/fscrypt
 %{_libdir}/security/pam_fscrypt.so
 %{_datadir}/pam-configs/fscrypt
+%{_datadir}/bash-completion/completions/fscrypt
 
 
 %changelog
