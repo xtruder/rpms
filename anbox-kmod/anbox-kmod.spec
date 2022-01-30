@@ -9,7 +9,7 @@
 Name:			anbox-kmod
 
 Version:		0
-Release:		0%{?gitsnapinfo}%{?dist}
+Release:		1%{?gitsnapinfo}%{?dist}
 Summary:        Anbox Kernel Modules
 
 Group:			System Environment/Kernel
@@ -72,12 +72,10 @@ for kernel_version in %{?kernel_versions}; do
 	install -D -m 755 _kmod_build_${kernel_version%%___*}/binder/binder_linux.ko  ${RPM_BUILD_ROOT}%{kmodinstdir_prefix}/${kernel_version%%___*}/%{kmodinstdir_postfix}/binder_linux.ko
 done
 
-install -D -m 644 anbox.conf  ${RPM_BUILD_ROOT}%{_sysconfdir}/modules-load.d/anbox.conf
 install -D -m 644 99-anbox.rules ${RPM_BUILD_ROOT}%{_sysconfdir}/udev/rules.d/99-anbox.rules
 %{?akmod_install}
 
 %files common
-%{_sysconfdir}/modules-load.d/anbox.conf
 %{_sysconfdir}/udev/rules.d/99-anbox.rules
 
 
