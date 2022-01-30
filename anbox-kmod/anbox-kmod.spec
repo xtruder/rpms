@@ -21,9 +21,9 @@ Source0:        %{giturl}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
 %define         SHA256SUM0 82dc872b6d80d5f461b2485ba68223d3fbdced03d749562febfb8e9ba383f0ec
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  %{_bindir}/kmodtool
+BuildArch:      noarch
 
-ExclusiveArch:  x86_64 aarch64
+BuildRequires:  %{_bindir}/kmodtool
 
 %{!?kernels:BuildRequires: buildsys-build-rpmfusion-kerneldevpkgs-%{?buildforkernels:%{buildforkernels}}%{!?buildforkernels:current}-%{_target_cpu} }
 
