@@ -1,3 +1,7 @@
+# RPMs
+
+Custom x-truder rpm packages. You can install packages via https://copr.fedorainfracloud.org/coprs/offlinehacker/xtruder-rpms/
+
 ## Writing spec file
 
 ### Notes regarding arch and copr
