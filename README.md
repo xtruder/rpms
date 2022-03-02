@@ -1,4 +1,11 @@
-## Workflow
+## Writing spec file
+
+### Notes regarding arch and copr
+
+Copr requires `BuildArch` to be set to `x86_64` or `aarch64`, otherwise it will refuse to download
+sources for some reason.
+
+## Building packages
 
 - Building locally
 
@@ -52,3 +59,13 @@ sudo rpm-ostree install <pkg_name>
 ```
 sudo rpm-ostree  refresh-md -f
 ```
+
+## Development
+
+- Preparing package:
+
+```
+fedpkg prep
+```
+
+This will download and unpack sources
