@@ -1,4 +1,4 @@
-%global extuuid    gnome-shell-extension-disable-workspace-switcher-popup@github.com
+%global extuuid    disable-workspace-switcher-popup@github.com
 %global extdir     %{_datadir}/gnome-shell/extensions/%{extuuid}
 %global gschemadir %{_datadir}/glib-2.0/schemas
 %global gitname    disable-workspace-switcher-popup
@@ -9,7 +9,7 @@
 
 Name:           gnome-shell-extension-disable-workspace-switcher-popup
 Version:        0
-Release:        0%{?gitsnapinfo}%{?dist}
+Release:        1%{?gitsnapinfo}%{?dist}
 Summary:        Gnome-Shell Extension Disable Window Switcher Popup
 
 License:        BSD-2-Clause
