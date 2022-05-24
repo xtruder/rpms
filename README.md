@@ -64,7 +64,7 @@ sudo rpm-ostree install <pkg_name>
 sudo rpm-ostree  refresh-md -f
 ```
 
-## Development
+## Packaging
 
 - Preparing package:
 
@@ -73,3 +73,17 @@ fedpkg prep
 ```
 
 This will download and unpack sources
+
+### Packaging python packages
+
+To generate package from pypi use: https://github.com/fedora-python/pyp2rpm (`sudo dnf install pyp2rpm`)
+
+Example usage:
+
+```
+pyp2rpm -o fedora trezor_agent > trezor_agent.spec
+```
+
+### Packaging go packages
+
+This guide will get you started: https://developers.redhat.com/articles/2021/05/21/build-your-own-rpm-package-sample-go-program#
