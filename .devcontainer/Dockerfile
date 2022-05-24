@@ -11,4 +11,7 @@ RUN dnf install -y nodejs && dnf clean all
 RUN dnf install -y fedora-packager fedora-review copr-cli && \
     dnf clean all
 
+RUN dnf install -y pyp2rpm && \
+    dnf clean all
+
 RUN usermod -a -G mock $USERNAME
