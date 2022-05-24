@@ -8,8 +8,8 @@ Name:           python-%{pypi_name}
 Version:        %{pypi_version}
 Release:        1%{?dist}
 Summary:        Using Trezor as hardware SSH/GPG agent
-
 License:        None
+
 URL:            http://github.com/romanz/trezor-agent
 Source0:        %{pypi_source}
 Source1:        trezor-gpg-agent.service
@@ -19,6 +19,7 @@ BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(setuptools)
+BuildRequires:  systemd-rpm-macros
 
 %description
 
@@ -44,8 +45,8 @@ rm -rf %{pypi_name}.egg-info
 
 %install
 %py3_install
-install -D -m 644 %SOURCE1 %{buildroot}%{_exec_prefix}/lib/systemd/user/trezor-gpg-agent.service
-install -D -m 644 %SOURCE2 %{buildroot}%{_exec_prefix}/lib/systemd/user/trezor-gpg-agent.socket
+install -D -m 644 %SOURCE1 %{buildroot}%{_userunitdir}/trezor-gpg-agent.service
+install -D -m 644 %SOURCE2 %{buildroot}%{_userunitdir}/trezor-gpg-agent.socket
 
 %files -n python3-%{pypi_name}
 %{_bindir}/trezor-agent
@@ -53,8 +54,8 @@ install -D -m 644 %SOURCE2 %{buildroot}%{_exec_prefix}/lib/systemd/user/trezor-g
 %{_bindir}/trezor-gpg-agent
 %{_bindir}/trezor_agent.py
 %{python3_sitelib}/%{pypi_name}-%{pypi_version}-py%{python3_version}.egg-info
-%{_exec_prefix}/lib/systemd/user/trezor-gpg-agent.service
-%{_exec_prefix}/lib/systemd/user/trezor-gpg-agent.socket
+%{_userunitdir}/trezor-gpg-agent.service
+%{_userunitdir}/trezor-gpg-agent.socket
 
 %changelog
 * Tue May 24 2022 vscode - 0.11.0-1
