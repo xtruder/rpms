@@ -1,0 +1,17 @@
+diff -ur a/setup.py b/setup.py
+--- a/setup.py	2021-11-06 12:41:42.000000000 +0000
++++ b/setup.py	2022-05-24 06:34:14.109412459 +0000
+@@ -19,13 +19,11 @@
+         'docutils>=0.14',
+         'python-daemon>=2.3.0',
+         'wheel>=0.32.3',
+-        'backports.shutil_which>=3.5.1',
+         'ConfigArgParse>=0.12.1',
+         'python-daemon>=2.1.2',
+         'ecdsa>=0.13',
+         'pynacl>=1.4.0',
+         'mnemonic>=0.18',
+-        'pymsgbox>=1.0.6',
+         'semver>=2.2',
+         'unidecode>=0.4.20',
+     ],
