@@ -2,14 +2,14 @@
 %global debug_package %{nil} 
 
 Name:       fscrypt
-Version:    0.3.1
+Version:    0.3.3
 Release:    0%{?dist}
 Summary:    High-level tool for the management of linux filesystem encryption.
 License:    ASL 2.0
 URL:        https://github.com/google/fscrypt
 %undefine   _disable_source_fetch
 Source0:    https://github.com/google/fscrypt/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-%define     SHA256SUM0 7ed190ac9a53a0c378620f226da4e700375a055a99b888beef1c4efa3ff7f0e6
+%define     SHA256SUM0 7485232dc4c48d8db262e0280b34b3c869e7b6f41f8ee8601ebfe04297796410
 
 BuildArch:  x86_64
 
