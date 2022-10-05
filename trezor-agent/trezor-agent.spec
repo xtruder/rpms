@@ -55,8 +55,8 @@ install -D -m 644 %SOURCE2 %{buildroot}%{_userunitdir}/trezor-gpg-agent.socket
 %{_bindir}/trezor_agent.py
 %{_bindir}/age-plugin-trezor
 %{_bindir}/trezor-signify
-%{python3_sitelib}/trezor_agent.py
-%{python3_sitelib}/__pycache__/*
+%ghost %{python3_sitelib}/trezor_agent.py
+%ghost %{python3_sitelib}/__pycache__/*
 %{python3_sitelib}/%{pypi_name}-%{pypi_version}-py%{python3_version}.egg-info
 %{_userunitdir}/trezor-gpg-agent.service
 %{_userunitdir}/trezor-gpg-agent.socket
