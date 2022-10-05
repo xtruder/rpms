@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        %{pypi_version}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Using Trezor as hardware SSH/GPG agent
 License:        None
 
