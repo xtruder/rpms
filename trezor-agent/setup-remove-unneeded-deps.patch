@@ -1,12 +1,12 @@
 diff -ur a/setup.py b/setup.py
---- a/setup.py	2020-04-17 11:39:37.000000000 +0000
-+++ b/setup.py	2022-05-24 07:01:56.344593165 +0000
+--- a/setup.py  2022-10-05 12:49:51.772458387 +0000
++++ b/setup.py  2022-10-05 12:50:04.109401107 +0000
 @@ -10,8 +10,7 @@
      url='http://github.com/romanz/trezor-agent',
      scripts=['trezor_agent.py'],
      install_requires=[
 -        'libagent>=0.14.0',
--        'trezor[hidapi]>=0.12.0,<0.13'
+-        'trezor[hidapi]>=0.13'
 +        'libagent>=0.14.0'
      ],
      platforms=['POSIX'],

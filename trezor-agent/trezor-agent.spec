@@ -2,11 +2,11 @@
 
 # Created by pyp2rpm-3.3.8
 %global pypi_name trezor_agent
-%global pypi_version 0.11.0
+%global pypi_version 0.12.0
 
 Name:           python-%{pypi_name}
 Version:        %{pypi_version}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Using Trezor as hardware SSH/GPG agent
 License:        None
 
@@ -30,7 +30,7 @@ Summary:        %{summary}
 
 Requires:       python3dist(libagent) >= 0.14
 Requires:       python3dist(setuptools)
-Requires:       (python3dist(trezor) >= 0.12 with python3dist(trezor) < 0.13~~)
+Requires:       python3dist(trezor) >= 0.13
 %description -n python3-%{pypi_name}
 
 
@@ -53,6 +53,10 @@ install -D -m 644 %SOURCE2 %{buildroot}%{_userunitdir}/trezor-gpg-agent.socket
 %{_bindir}/trezor-gpg
 %{_bindir}/trezor-gpg-agent
 %{_bindir}/trezor_agent.py
+%{_bindir}/age-plugin-trezor
+%{_bindir}/trezor-signify
+%{python3_sitelib}/trezor_agent.py
+%{python3_sitelib}/__pycache__/*
 %{python3_sitelib}/%{pypi_name}-%{pypi_version}-py%{python3_version}.egg-info
 %{_userunitdir}/trezor-gpg-agent.service
 %{_userunitdir}/trezor-gpg-agent.socket
