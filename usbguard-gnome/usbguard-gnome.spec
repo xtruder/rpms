@@ -1,9 +1,9 @@
 %global gschemadir %{_datadir}/glib-2.0/schemas
 %global gitname    usbguard-gnome
 %global giturl     https://github.com/6E006B/%{gitname}
-%global gitcommit  ce90c7a8db4b1429adc772816e23520818c865c4
+%global gitcommit  26d300b3597db233cdddbed49dd1cc2c3aecbdb6
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo .20201027git%{gitshortcommit}
+%global gitsnapinfo .20220605git%{gitshortcommit}
 
 Name:       usbguard-gnome
 Summary:    USBGuard configuration interface for gnome
@@ -17,7 +17,7 @@ Source0:    %{url}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
 Source1:    usbguard.desktop
 Source2:    usbguard_applet.desktop
 Source3:    usbguard-icon.svg
-%define     SHA256SUM0 4034d99753f7a5aa5a048b4dc0db02f97a401579294cdf99619e4d1ef9f3a800
+%define     SHA256SUM0 e0a47d3757130e193dc256c4527ad316c4bbc784c18c946adce1f3eb7389f4e6
 
 BuildArch:      noarch
 
