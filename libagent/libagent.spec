@@ -10,6 +10,7 @@ Summary:        Using hardware wallets as SSH/GPG agent
 License:        None
 URL:            http://github.com/romanz/trezor-agent
 Source0:        %{pypi_source}
+Patch0:         setup-remove-unneeded-deps.patch
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
@@ -22,14 +23,12 @@ BuildRequires:  python3dist(setuptools)
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
-Requires:       python3dist(backports.shutil-which) >= 3.5.1
 Requires:       python3dist(bech32) >= 1.2
 Requires:       python3dist(configargparse) >= 0.12.1
 Requires:       python3dist(cryptography) >= 3.4.6
 Requires:       python3dist(docutils) >= 0.14
 Requires:       python3dist(ecdsa) >= 0.13
 Requires:       python3dist(mnemonic) >= 0.18
-Requires:       python3dist(pymsgbox) >= 1.0.6
 Requires:       python3dist(pynacl) >= 1.4
 Requires:       python3dist(python-daemon) >= 2.1.2
 Requires:       python3dist(python-daemon) >= 2.3
