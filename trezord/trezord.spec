@@ -1,5 +1,5 @@
 Name:           trezord
-Version:        2.0.31
+Version:        2.0.32
 Release:        1%{?dist}
 Summary:        Trezor Communication Daemon
 License:        GPLv3.0
