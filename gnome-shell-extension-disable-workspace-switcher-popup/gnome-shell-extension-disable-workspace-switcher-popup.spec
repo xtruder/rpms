@@ -3,9 +3,9 @@
 %global gschemadir %{_datadir}/glib-2.0/schemas
 %global gitname    disable-workspace-switcher-popup
 %global giturl     https://github.com/windsorschmidt/%{gitname}
-%global gitcommit  cf509c41ae52e7eee85afb6f90397f416a6926ab
+%global gitcommit  7b04d732616a1422a1490f23b302a71466331bff
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo .20211004git%{gitshortcommit}
+%global gitsnapinfo .20221006git%{gitshortcommit}
 
 Name:           gnome-shell-extension-disable-workspace-switcher-popup
 Version:        0
@@ -16,7 +16,7 @@ License:        BSD-2-Clause
 URL:            %{giturl}
 %undefine       _disable_source_fetch
 Source0:        %{giturl}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
-%define         SHA256SUM0 30bdea6918de977d5d2a251ba360c1aa1decb8742e8e92bf7f99a5eee5b7b239
+%define         SHA256SUM0 34b09c8bafa6905a31622020bc6a60b68de712f87ad19e53ade7166b43c2f635
 
 BuildArch:      noarch
 
