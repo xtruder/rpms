@@ -1,18 +1,18 @@
 %global gitname    code-nautilus
 %global giturl     https://github.com/harry-cpp/%{gitname}
-%global gitcommit  37ff018ee4d8d917b6da094a513da1f622b11bcb
+%global gitcommit  12538b3a4d3bffe361da230c6eaddd80206bd444
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo .20191114git%{gitshortcommit}
+%global gitsnapinfo .20221024git%{gitshortcommit}
 
 Name:       %{gitname}
 Summary:    Visual studio code extension for Nautilus.
 Version:    0
-Release:    1%{?gitsnapinfo}%{?dist}
+Release:    0%{?gitsnapinfo}%{?dist}
 License:    Unilicense
 URL:        %{giturl}
 %undefine   _disable_source_fetch
 Source0:    %{url}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
-%define     SHA256SUM0 e20c39bc7fe3f2986e04ae7912e9bfe743c3289122ab75a1359e06174a029d13
+%define     SHA256SUM0 973ab107fb75a173a508d35bd0dc30fa80cdd3a20b172288204ff5ea4621378c
 
 BuildArch:      noarch
 
