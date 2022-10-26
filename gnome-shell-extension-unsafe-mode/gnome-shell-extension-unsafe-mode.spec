@@ -8,7 +8,7 @@
 
 Name:           gnome-shell-extension-unsafe-mode
 Version:        0
-Release:        0%{?gitsnapinfo}%{?dist}
+Release:        1%{?gitsnapinfo}%{?dist}
 Summary:        Unsafe Mode GNOME Shell Extension
 
 License:        GPLv2
