@@ -16,6 +16,7 @@ URL:            %{giturl}
 %undefine       _disable_source_fetch
 Source0:        %{giturl}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
 %define         SHA256SUM0 d92eff0a0a386ff9c6d50c93aa3ac878264fcc5e42545642e7056f37a2beaf72
+Patch0:         gs43.patch
 
 BuildArch:      noarch
 
