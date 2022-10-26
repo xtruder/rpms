@@ -3,9 +3,9 @@
 %global gschemadir %{_datadir}/glib-2.0/schemas
 %global gitname    workspaces-bar
 %global giturl     https://github.com/fthx/%{gitname}
-%global gitcommit  5983c756673051e08ccc37cfed8efb92383c4cfa
+%global gitcommit  667571d4b8512f55f991a1bcac6c903e7ffb2381
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo .20211125git%{gitshortcommit}
+%global gitsnapinfo .20220403git%{gitshortcommit}
 
 Name:           gnome-shell-extension-workspaces-bar
 Version:        0
@@ -17,7 +17,8 @@ License:        GPLv3+
 URL:            %{giturl}
 %undefine       _disable_source_fetch
 Source0:        %{giturl}/archive/%{gitcommit}.tar.gz#/%{name}-%{release}.tar.gz
-%define         SHA256SUM0 1ca177646dc2bb6244e9e3928b096f1a2edc9293ffb33c3bf375d480d388945f
+%define         SHA256SUM0 f7611fcf6d1ac0f8df0ff62b2a4ce1d649a200e62032056bd51103c3236c6392
+Patch0:         gs43.patch
 
 BuildArch:      noarch
 

@@ -1,0 +1,27 @@
+From a9aebc531eb7ca7307a35a27ab669923f24fd8d6 Mon Sep 17 00:00:00 2001
+From: Jonas Palm <null-git@users.noreply.github.com>
+Date: Sun, 2 Oct 2022 11:44:33 +0200
+Subject: [PATCH] Add GS 43 to metadata
+
+---
+ metadata.json | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/metadata.json b/metadata.json
+index a9f497d..4111ac4 100644
+--- a/metadata.json
++++ b/metadata.json
+@@ -7,9 +7,10 @@
+     "3.38",
+     "40",
+     "41",
+-    "42"
++    "42",
++    "43"
+   ],
+   "url": "https://github.com/fthx/workspaces-bar",
+   "uuid": "workspaces-bar@fthx",
+   "version": 99
+-}
+\ No newline at end of file
++}
