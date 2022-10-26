@@ -3,15 +3,15 @@
 %global gschemadir %{_datadir}/glib-2.0/schemas
 
 Name:           gnome-shell-extension-night-theme-switcher
-Version:        v54
-Release:        1%{dist}
+Version:        v67
+Release:        0%{dist}
 Summary:        Night Theme Switcher GNOME Shell extension
 
 License:        GPLv3+
 URL:            https://nightthemeswitcher.romainvigier.fr/
 %undefine       _disable_source_fetch
-Source0:        https://extensions.gnome.org/extension-data/nightthemeswitcherromainvigier.fr.v54.shell-extension.zip#/%{name}-%{version}.zip
-%define         SHA256SUM0 3529ac417410a64add7eba56c545c3785bbdf0b9b8ac71f074dfe521fba30912
+Source0:        https://extensions.gnome.org/extension-data/nightthemeswitcherromainvigier.fr.v67.shell-extension.zip#/%{name}-%{version}.zip
+%define         SHA256SUM0 9bbdc659fdca1bfb24231844692315eb10204ef6e36e35269ae9d1eb30c240dd
 
 BuildArch:      noarch
 
@@ -38,27 +38,8 @@ echo "%SHA256SUM0  %SOURCE0" | sha256sum -c -
 mkdir -p %{buildroot}%{extdir}
 cp -pr * %{buildroot}%{extdir}
 
-# Install schema.
-mkdir -p %{buildroot}%{gschemadir}
-cp -pr schemas/*gschema.xml %{buildroot}%{gschemadir}
-
-
-# CentOS 7 doesn't compile gschemas automatically, Fedora does.
-%if 0%{?rhel} && 0%{?rhel} <= 7
-%postun
-if [ $1 -eq 0 ] ; then
-  %{_bindir}/glib-compile-schemas %{gschemadir} &> /dev/null || :
-fi
-
-%posttrans
-%{_bindir}/glib-compile-schemas %{gschemadir} &> /dev/null || :
-%endif
-
-
-
 %files
 %{extdir}
-%{gschemadir}/*gschema.xml
 
 
 %changelog
