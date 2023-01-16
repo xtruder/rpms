@@ -14,13 +14,13 @@ sources for some reason.
 - Building locally
 
 ```
-fedpkg --release f35 mockbuild
+fedpkg --release f37 mockbuild --enable-network
 ```
 
 Building with custom parameters:
 
 ```
-fedpkg --release f35 mockbuild  --mock-config ./fedora-35-x86_64-bazel.cfg --enable-network
+fedpkg --release f37 mockbuild  --mock-config ./fedora-37-x86_64-bazel.cfg --enable-network
 ```
 
 - Cleanup
@@ -66,13 +66,19 @@ sudo rpm-ostree  refresh-md -f
 
 ## Packaging
 
-- Preparing package:
+### Preparing package and downloading sources
 
 ```
 fedpkg prep
 ```
 
 This will download and unpack sources
+
+If you have issue with that command you can use `spectool` to download sources instead:
+
+```
+spectool  -g -C . myspec.spec
+```
 
 ### Packaging python packages
 
@@ -87,3 +93,12 @@ pyp2rpm -o fedora trezor_agent > trezor_agent.spec
 ### Packaging go packages
 
 This guide will get you started: https://developers.redhat.com/articles/2021/05/21/build-your-own-rpm-package-sample-go-program#
+
+
+## Notes
+
+- Unpacking rpm files
+
+```shell
+rpm2cpio gnome-shell-extension-workspaces-bar-0-0.20211125git667571d.fc37.noarch.rpm | cpio -idmv
+```
