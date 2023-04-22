@@ -1,10 +1,10 @@
-%global extuuid    nightthemeswitcher@romainvigier.f
+%global extuuid    nightthemeswitcher@romainvigier.fr
 %global extdir     %{_datadir}/gnome-shell/extensions/%{extuuid}
 %global gschemadir %{_datadir}/glib-2.0/schemas
 
 Name:           gnome-shell-extension-night-theme-switcher
 Version:        v74
-Release:        0%{dist}
+Release:        2%{dist}
 Summary:        Night Theme Switcher GNOME Shell extension
 
 License:        GPLv3+
@@ -38,17 +38,9 @@ echo "%SHA256SUM0  %SOURCE0" | sha256sum -c -
 mkdir -p %{buildroot}%{extdir}
 cp -pr * %{buildroot}%{extdir}
 
-# Install schema.
-mkdir -p %{buildroot}%{gschemadir}
-cp -pr schemas/*gschema.xml %{buildroot}%{gschemadir}
-
-# Cleanup unused files.
-rm -fr %{buildroot}%{extdir}/schemas
-
 
 %files
 %{extdir}
-%{gschemadir}/*gschema.xml
 
 
 %changelog
