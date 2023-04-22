@@ -2,20 +2,20 @@
 %global debug_package %{nil} 
 
 Name:       fscrypt
-Version:    0.3.3
+Version:    0.3.4
 Release:    0%{?dist}
 Summary:    High-level tool for the management of linux filesystem encryption.
 License:    ASL 2.0
 URL:        https://github.com/google/fscrypt
 %undefine   _disable_source_fetch
 Source0:    https://github.com/google/fscrypt/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-%define     SHA256SUM0 7485232dc4c48d8db262e0280b34b3c869e7b6f41f8ee8601ebfe04297796410
+%define     SHA256SUM0 fe3c51ecb936226087bb3a62dddda5b7f5cd77dd3be7bf1feb270e1c55eddfa3
 
 BuildArch:  x86_64
 
 BuildRequires: gcc
 BuildRequires: m4
-BuildRequires: golang >= 1.11
+BuildRequires: golang >= 1.16
 BuildRequires: pam-devel
 BuildRequires: git
 
@@ -42,7 +42,7 @@ echo "%SHA256SUM0  %SOURCE0" | sha256sum -c
 
 
 %files
-%doc README.md
+%doc README.md NEWS.md
 %license LICENSE
 %{_bindir}/fscrypt
 %{_libdir}/security/pam_fscrypt.so
