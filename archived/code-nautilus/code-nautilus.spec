@@ -1,8 +1,8 @@
 %global gitname    code-nautilus
 %global giturl     https://github.com/harry-cpp/%{gitname}
-%global gitcommit  12538b3a4d3bffe361da230c6eaddd80206bd444
+%global gitcommit  f09f51e041d82149cc2c3b582435977965a27ece
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo .20221024git%{gitshortcommit}
+%global gitsnapinfo .20230322git%{gitshortcommit}
 
 Name:       %{gitname}
 Summary:    Visual studio code extension for Nautilus.

@@ -14,7 +14,7 @@ sources for some reason.
 - Building locally
 
 ```
-fedpkg --release f37 mockbuild --enable-network
+fedpkg --release f38 mockbuild --enable-network
 ```
 
 Building with custom parameters:
