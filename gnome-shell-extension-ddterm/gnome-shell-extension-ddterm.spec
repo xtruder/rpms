@@ -4,7 +4,7 @@
 
 Name:           gnome-shell-extension-ddterm
 Version:        v48
-Release:        0%{dist}
+Release:        1%{dist}
 Summary:        Another drop down terminal extension for GNOME Shell.
 
 License:        GPLv3+
@@ -39,14 +39,16 @@ cp -pr * %{buildroot}%{extdir}
 
 # Install schema.
 mkdir -p %{buildroot}%{gschemadir}
+cp -pr schemas/*gschema.xml %{buildroot}%{gschemadir}
 
 # Cleanup unused files.
-rm %{buildroot}%{extdir}/LICENSE
+rm -r %{buildroot}%{extdir}/{LICENSE,schemas}
 
 
 %files
 %license LICENSE
 %{extdir}
+%{gschemadir}/*gschema.xml
 
 
 %changelog
