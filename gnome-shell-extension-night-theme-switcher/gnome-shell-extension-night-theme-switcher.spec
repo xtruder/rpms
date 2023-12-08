@@ -3,22 +3,22 @@
 %global gschemadir %{_datadir}/glib-2.0/schemas
 
 Name:           gnome-shell-extension-night-theme-switcher
-Version:        v74
-Release:        3%{dist}
+Version:        75
+Release:        0%{dist}
 Summary:        Night Theme Switcher GNOME Shell extension
 
 License:        GPLv3+
 URL:            https://nightthemeswitcher.romainvigier.fr/
 %undefine       _disable_source_fetch
-Source0:        https://extensions.gnome.org/extension-data/nightthemeswitcherromainvigier.fr.v74.shell-extension.zip#/%{name}-%{version}.zip
-%define         SHA256SUM0 efcb981580ec3853386bb5ef3acf38dd19051ea1f6717ac5b07b84bebc1fbd76
+Source0:        https://extensions.gnome.org/extension-data/nightthemeswitcherromainvigier.fr.v%{version}.shell-extension.zip#/%{name}-%{version}.zip
+%define         SHA256SUM0 df9080db76ad8d8b6bee0b0e65fab5419376e740ee78d521b1aad016a60dc661
 
 BuildArch:      noarch
 
 BuildRequires:  %{_bindir}/glib-compile-schemas
 
 Requires:       gnome-shell-extension-common
-Requires:       gnome-shell >= 4.44.0
+Requires:       gnome-shell >= 4.45.0
 
 
 %description
