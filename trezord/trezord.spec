@@ -8,7 +8,7 @@ URL:            https://github.com/trezor/trezord-go
 Source0:        https://github.com/trezor/trezord-go/archive/refs/tags/v%{version}.tar.gz#/trezord-go-%{version}.tar.gz
 
 Requires(pre):  shadow-utils
-BuildRequires:  golang
+BuildRequires:  golang < 1.21
 BuildRequires:  git
 BuildRequires:  systemd-rpm-macros
 
