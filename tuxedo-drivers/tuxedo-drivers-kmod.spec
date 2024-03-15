@@ -29,6 +29,8 @@ Linux kernel modules for tuxedo laptops
 
 %package common
 Summary: Tuxedo Kernel Modules user package
+
+# this is here to make tuxedo-control-center install, without installing dkms drivers
 Provides:       tuxedo-drivers = %{version}
 
 %description common
@@ -36,6 +38,9 @@ Tuxedo kernel Modules user package
 
 %prep
 echo "%SHA256SUM0 %SOURCE0" | sha256sum -c -
+
+# print kmodtool output for debugging purposes:
+kmodtool --target %{_target_cpu} --repo rpmfusion --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
 # error out if there was something wrong with kmodtool
 %{?kmodtool_check}
