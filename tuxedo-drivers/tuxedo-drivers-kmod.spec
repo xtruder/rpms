@@ -5,7 +5,7 @@
 Name:           tuxedo-drivers-kmod
 
 Version:        4.3.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Tuxedo drivers kmod package
 
 Group:          System Environment/Kernel
@@ -19,8 +19,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  %{_bindir}/kmodtool
 ExclusiveArch:  x86_64
 
-Provides:       tuxedo-drivers = %{version}
-
 %{!?kernels:BuildRequires: buildsys-build-rpmfusion-kerneldevpkgs-%{?buildforkernels:%{buildforkernels}}%{!?buildforkernels:current}-%{_target_cpu} }
 
 # kmodtool does its magic here
@@ -31,6 +29,7 @@ Linux kernel modules for tuxedo laptops
 
 %package common
 Summary: Tuxedo Kernel Modules user package
+Provides:       tuxedo-drivers = %{version}
 
 %description common
 Tuxedo kernel Modules user package
@@ -77,6 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/udev/rules.d/99-z-tuxedo-systemd-fix.rules
 
 %changelog
+* Fri Mar 15 2024 offlinehq
+- Add Provides for tuxedo-drivers
 * Fri Mar 15 2024 offlinehq
 - Update to version 4.3.2
 * Mon Feb 05 2024 offlinehq
