@@ -4,8 +4,8 @@
 
 Name:           tuxedo-drivers-kmod
 
-Version:        4.3.2
-Release:        2%{?dist}
+Version:        4.4.3
+Release:        0%{?dist}
 Summary:        Tuxedo drivers kmod package
 
 Group:          System Environment/Kernel
@@ -13,7 +13,7 @@ Group:          System Environment/Kernel
 License:        GPLv2+
 URL:            https://github.com/tuxedocomputers/tuxedo-drivers
 Source0:        https://github.com/tuxedocomputers/tuxedo-drivers/archive/refs/tags/v%{version}.tar.gz#/tuxedo-drivers-%{version}.tar.gz
-%define	        SHA256SUM0 b7bfe2905df7e37d92704363b9b0adb550dc9f8449b70c9dbdb40dc5075bc8e4
+%define	        SHA256SUM0 65950b8c1e81da6d2583a2612b2a4f4d7390af20d73ef772309fb19008323561
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  %{_bindir}/kmodtool
@@ -44,9 +44,6 @@ kmodtool --target %{_target_cpu} --repo rpmfusion --kmodname %{name} %{?buildfor
 
 # error out if there was something wrong with kmodtool
 %{?kmodtool_check}
-
-# print kmodtool output for debugging purposes:
-kmodtool  --target %{_target_cpu}  --repo rpmfusion --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
 %setup -q -c -T -a 0
 
@@ -81,6 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/udev/rules.d/99-z-tuxedo-systemd-fix.rules
 
 %changelog
+* Mon May 13 2024 offlinehq
+- Update to version 4.4.3
 * Fri Mar 15 2024 offlinehq
 - Add Provides for tuxedo-drivers
 * Fri Mar 15 2024 offlinehq
