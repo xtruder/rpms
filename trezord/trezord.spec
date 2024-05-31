@@ -1,14 +1,21 @@
+%global gitname    trezord-go
+%global giturl     https://github.com/trezor/%{gitname}
+%global gitcommit  db03d99230f5b609a354e3586f1dfc0ad6da16f7
+%global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
+%global gitsnapinfo .20240531git%{gitshortcommit}
+
 Name:           trezord
 Version:        2.0.33
-Release:        0%{?dist}
+Release:        0%{?gitsnapinfo}%{?dist}
 Summary:        Trezor Communication Daemon
 License:        GPLv3.0
+URL:            %{giturl}
 
-URL:            https://github.com/trezor/trezord-go
-Source0:        https://github.com/trezor/trezord-go/archive/refs/tags/v%{version}.tar.gz#/trezord-go-%{version}.tar.gz
+Source0:        %{giturl}/archive/%{gitcommit}.tar.gz#/%{name}-%{version}-%{gitshortcommit}.tar.gz
+%define         SHA256SUM0 9d02711e6c495793316775526ca93df860741ce7748641a662fb877ec0ef00ba
 
 Requires(pre):  shadow-utils
-BuildRequires:  golang < 1.21
+BuildRequires:  golang
 BuildRequires:  git
 BuildRequires:  systemd-rpm-macros
 
@@ -20,11 +27,12 @@ Trezor Communication Daemon (also called trezor bridge)
 %global debug_package %{nil}
 
 %prep
-%autosetup -n trezord-go-%{version}
+echo "%SHA256SUM0  %SOURCE0" | sha256sum -c -
+%autosetup -n %{gitname}-%{gitcommit} -p 1
 
 
 %build
-GO111MODULE=on go build -v ./
+go build -v ./
 
 
 %install
@@ -55,3 +63,5 @@ exit 0
 
 
 %changelog
+* Fri May 31 2024 offlinehq
+- Initial Fedora build
