@@ -4,7 +4,7 @@
 
 Name:           tuxedo-drivers-kmod
 
-Version:        4.7.0
+Version:        4.11.7
 Release:        0%{?dist}
 Summary:        Tuxedo drivers kmod package
 
@@ -13,7 +13,7 @@ Group:          System Environment/Kernel
 License:        GPLv2+
 URL:            https://github.com/tuxedocomputers/tuxedo-drivers
 Source0:        https://github.com/tuxedocomputers/tuxedo-drivers/archive/refs/tags/v%{version}.tar.gz#/tuxedo-drivers-%{version}.tar.gz
-%define	        SHA256SUM0 51368f46bb90cec608443259fe7bddfb225c9de86f8643b8ac3bbab0bb4f0a56
+%define	        SHA256SUM0 93573abeeb3f5ce54d190c9bf718059126ead3b4be51d8a1a09f1c0165006699
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  %{_bindir}/kmodtool
